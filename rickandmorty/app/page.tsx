@@ -1,13 +1,17 @@
 import React from 'react'
-import { Button } from "@/components/ui/button"
+import Image from 'next/image'
 
-const page = () => {
-    return (
-        <div>
-            <h1 className='text-3xl text-red-400'>Hello</h1>
-            <Button variant="link">Click me</Button>
-        </div>
-    )
+const Page: React.FC = () => {
+  return (
+    <div>
+      <Image 
+        src="/picture.jpg" 
+        alt="Description of the image" 
+        width={500} 
+        height={300} 
+      />
+    </div>
+  )
 }
 
-export default page
+export default Page
