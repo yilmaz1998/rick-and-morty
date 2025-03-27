@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import Link from 'next/link'
 import { buttonVariants } from "@/components/ui/button"
@@ -9,10 +10,15 @@ import {
 } from "@/components/ui/accordion";
 import data from "@/app/data";
 import Footer from '../footer';
+import { motion } from 'framer-motion'
 
 const Page = () => {
     return (
-        <div className="p-4 w-full sm:w-1/2 text-center mx-auto">
+        <motion.div
+        initial={{ opacity: 0, y: -80 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="p-4 w-full sm:w-1/2 text-center mx-auto">
             <h1 className='text-4xl mb-4'>Rick and Morty Characters</h1>
             <Link href={'/'} className={buttonVariants({ variant: "outline" })}>Home Page</Link>
             <Accordion type="single" collapsible className="w-full">
@@ -25,6 +31,7 @@ const Page = () => {
                                 <div>
                                     <p><strong>Status:</strong> {character.status}</p>
                                     <p><strong>Species:</strong> {character.species}</p>
+                                    <p><strong>Type:</strong> {character.type}</p>
                                     <p><strong>Gender:</strong> {character.gender}</p>
                                     <p><strong>Origin:</strong> {character.origin}</p>
                                 </div>
@@ -34,7 +41,7 @@ const Page = () => {
                 ))}
             </Accordion>
             <Footer />
-        </div>
+        </motion.div>
     );
 };
 
