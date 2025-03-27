@@ -1,4 +1,6 @@
 import React from 'react';
+import Link from 'next/link'
+import { buttonVariants } from "@/components/ui/button"
 import {
     Accordion,
     AccordionContent,
@@ -10,8 +12,9 @@ import Footer from '../footer';
 
 const Page = () => {
     return (
-        <div className="p-4 w-full sm:w-1/2 mx-auto">
-            <h1 className='text-4xl mb-4 text-center'>Rick and Morty Characters</h1>
+        <div className="p-4 w-full sm:w-1/2 text-center mx-auto">
+            <h1 className='text-4xl mb-4'>Rick and Morty Characters</h1>
+            <Link href={'/'} className={buttonVariants({ variant: "outline" })}>Home Page</Link>
             <Accordion type="single" collapsible className="w-full">
                 {data.map((character) => (
                     <AccordionItem key={character.id} value={`item-${character.id}`}>
